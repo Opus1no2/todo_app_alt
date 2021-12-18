@@ -1,10 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe "Sessions", type: :request do
+  let(:user) { FactoryBot.create(:user) }
+
   describe "POST /create" do
-    it "does nothing" do
-      post "/session"
-      expect(response).to have_http_status(:ok)
+    context "valid email and password" do
+      it "redirects to resource" do
+        post "/session", params: { email: user.email, password: user.password }
+        expect(response).to redirect_to(todo_lists_url)
+      end
     end
   end
 

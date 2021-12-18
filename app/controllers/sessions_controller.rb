@@ -1,13 +1,19 @@
 class SessionsController < ApplicationController
   def create
-    head :ok
+    user = User.find_by(email: permitted[:email])
+    if user && user.authenticate(permitted[:password]).present?
+      session[:user_id] = user.id
+      return redirect_to todo_lists_url
+    end
+
+    head :no_content
   end
 
   def destroy
     head :ok
   end
 
-  def user_params
-    params.require(:user).permit(:email, :password)
+  def permitted
+    params.permit(:email, :password)
   end
 end
