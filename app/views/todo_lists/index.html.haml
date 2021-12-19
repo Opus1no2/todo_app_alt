@@ -1,2 +1,7 @@
 %h1
   Lists
+
+%turbo-frame{id: "todo_lists"}
+  - @todo_lists.each do |todo_list|
+    %div
+      = todo_list.label
