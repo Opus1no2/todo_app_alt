@@ -1,7 +1,5 @@
 %h1
   Lists
 
-%turbo-frame{id: "todo_lists"}
-  - @todo_lists.each do |todo_list|
-    %div
-      = todo_list.label
+.list-nav
+  = render partial: "shared/todo_list", collection: @todo_lists
