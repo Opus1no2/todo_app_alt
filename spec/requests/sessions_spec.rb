@@ -16,9 +16,9 @@ RSpec.describe "Sessions", type: :request do
   end
 
   describe "DELETE /destroy" do
-    it "does nothing" do
+    it "returns http found" do
       delete "/session"
-      expect(response).to have_http_status(:ok)
+      expect(response).to have_http_status(:found)
     end
   end
 end

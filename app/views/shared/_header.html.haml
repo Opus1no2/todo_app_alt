@@ -1,4 +1,4 @@
 %h1
   Header
 - if logged_in?
-  %button Logout
+  = button_to "Logout", session_path, method: :delete

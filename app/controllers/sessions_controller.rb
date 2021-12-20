@@ -10,7 +10,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    head :ok
+    log_out
+    redirect_to login_path
   end
 
   def permitted
