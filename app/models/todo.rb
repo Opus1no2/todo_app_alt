@@ -5,4 +5,6 @@ class Todo < ApplicationRecord
 
   validates :todo_list, presence: true
   validates :description, presence: true
+
+  after_create_commit { broadcast_prepend_to 'todos' }
 end

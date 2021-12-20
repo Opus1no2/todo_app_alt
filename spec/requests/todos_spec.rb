@@ -10,8 +10,9 @@ RSpec.describe 'Todos', type: :request do
   end
 
   describe 'GET /index' do
-    it 'returns http found' do
-      expect(response).to have_http_status(:found)
+    it 'returns http ok' do
+      get todo_list_todos_path(user.todo_lists.first, user.todos.first)
+      expect(response).to have_http_status(:ok)
     end
   end
 end

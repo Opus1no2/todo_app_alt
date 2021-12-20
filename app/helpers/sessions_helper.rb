@@ -6,7 +6,7 @@ module SessionsHelper
   end
 
   def logged_in?
-    current_user.present?
+    session[:user_id].present?
   end
 
   def log_in(current_user)
@@ -14,7 +14,7 @@ module SessionsHelper
   end
 
   def log_out
-    session.delete([:user_id])
+    session[:user_id] = nil
   end
 
   def authenticate_user

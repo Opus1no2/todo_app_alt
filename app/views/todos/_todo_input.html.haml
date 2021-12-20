@@ -1,0 +1,4 @@
+.pb-5
+  = form_for([@todo_list, Todo.new]) do |f|
+    = f.text_field :description
+    = f.submit class: 'border border-gray-300 hover:border-indigo-300 cursor-pointer p-2 '

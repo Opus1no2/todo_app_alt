@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   get '/login', to: 'login#show'
   resource :session, only: %i[create destroy]
   resources :todo_lists, only: %i[index show] do
-    resources :todos, only: [:index]
+    resources :todos, only: %i[index create]
   end
 end
