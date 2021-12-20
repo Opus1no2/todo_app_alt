@@ -1,4 +1,3 @@
 = render partial: "todo_input"
-= turbo_stream_from "todos"
 = turbo_frame_tag "todos" do
   = render partial: "todo", collection: @todos

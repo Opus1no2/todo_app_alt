@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   def create
     if user.authenticate(permitted[:password]).present?
       log_in(user)
-      redirect_to todo_list_todos_path(user.todo_lists.first, user.todos.first)
+      redirect_to todo_list_todos_path(user.todo_lists.first)
       return
     end
 
