@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :todo_list do
-    label { "Personal" }
+    label { 'Personal' }
 
     trait :with_todos do
       after :create do |todo_list|

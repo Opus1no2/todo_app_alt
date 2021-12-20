@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SessionsHelper
   def current_user
     @current_user ||= User.find_by(id: session[:user_id])
@@ -7,9 +9,12 @@ module SessionsHelper
     current_user.present?
   end
 
+  def log_in(current_user)
+    session[:user_id] = current_user.id
+  end
+
   def log_out
-    @current_user = nil
-    session[:user_id] = nil
+    session.delete([:user_id])
   end
 
   def authenticate_user
