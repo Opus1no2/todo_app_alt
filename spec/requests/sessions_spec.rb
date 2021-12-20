@@ -7,7 +7,10 @@ RSpec.describe "Sessions", type: :request do
     context "valid email and password" do
       it "redirects to resource" do
         post "/session", params: { email: user.email, password: user.password }
-        expect(response).to redirect_to(todo_lists_url)
+
+        todo_list = user.todo_lists.first
+        todo = user.todo_lists.first.todos.first
+        expect(response).to redirect_to(todo_list_todos_url(todo_list, todo))
       end
     end
   end
