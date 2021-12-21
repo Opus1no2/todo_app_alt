@@ -1,4 +1,5 @@
 = turbo_frame_tag dom_id(todo) do
   .flex.justify-between.p-2.mb-1.border.border-slate-300{class: ('line-through' if todo.completed_at)}
+    = button_to "✓"
     = todo.description
-    = button_to "X", todo_list_todo_path(@todo_list, todo), method: :delete
+    = button_to "X", todo_list_todo_path(@todos_view.todo_list, todo), method: :delete

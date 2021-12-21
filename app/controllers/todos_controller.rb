@@ -4,23 +4,27 @@ class TodosController < ApplicationController
   before_action :authenticate_user
 
   def index
-    @todos = todo_list.todos.order(created_at: :desc)
+    todos_view
   end
 
   def create
-    @todo = Todo.new(todo_params)
-    todo_list.todos << @todo
+    @todo = Todo.new(
+      description: todo_params[:description],
+      todo_list: todos_view.todo_list
+    )
 
     respond_to do |format|
       format.turbo_stream do
-        render turbo_stream: turbo_stream.prepend(:todos, partial: "todo",
-          locals: { todo: @todo })
+        if @todo.save
+          render turbo_stream: turbo_stream.prepend(:todos, partial: "todo",
+            locals: { todo: @todo })
+        end
       end
     end
   end
 
   def destroy
-    @todo = todo_list.todos.find(params[:id])
+    @todo = todos_view.todo_list.todos.find(params[:id])
     @todo.destroy
 
     respond_to do |format|
@@ -34,7 +38,7 @@ class TodosController < ApplicationController
     params.require(:todo).permit(:description)
   end
 
-  def todo_list
-    @todo_list ||= current_user.todo_lists.find(params[:todo_list_id])
+  def todos_view
+    @todos_view ||= TodosView.new(current_user, params)
   end
 end

@@ -1,3 +1,8 @@
-= render partial: "todo_input"
-= turbo_frame_tag "todos" do
-  = render partial: "todo", collection: @todos
+.flex
+  .flex-col.w-48.px-5.mt-5
+    = render partial: "shared/todo_list", collection: @todos_view.todo_lists
+
+  .flex-col.grow.px-5.mt-5
+    = render partial: "todo_input"
+    = turbo_frame_tag "todos" do
+      = render partial: "todo", collection: @todos_view.todos
