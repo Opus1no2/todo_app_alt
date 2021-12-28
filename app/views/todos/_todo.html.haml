@@ -1,5 +1,8 @@
 = turbo_frame_tag dom_id(todo) do
   .flex.justify-between.p-2.mb-1.border.border-slate-300{class: ('line-through' if todo.completed_at)}
-    = button_to "✓"
-    = todo.description
+    .flex
+      .px-2
+        = form_with model: todo, url: todo_list_todo_path(@todos_view.todo_list, todo), method: "patch"  do |f|
+          = f.check_box :completed_at, { onchange: "this.form.requestSubmit()", checked: todo.completed_at.present? }
+      = todo.description
     = button_to "X", todo_list_todo_path(@todos_view.todo_list, todo), method: :delete

@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class TodosController < ApplicationController
+  include TodosHelper
+
   before_action :authenticate_user
 
   def index
@@ -23,6 +25,18 @@ class TodosController < ApplicationController
     end
   end
 
+  def update
+    @todo = todos_view.todo_list.todos.find(params[:id])
+    @todo.update!(completed_at: completed_at(todo_params))
+
+    respond_to do |format|
+      format.html { render todos_view.todo_list.todos }
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.replace(@todo)
+      end
+    end
+  end
+
   def destroy
     @todo = todos_view.todo_list.todos.find(params[:id])
     @todo.destroy
@@ -35,7 +49,7 @@ class TodosController < ApplicationController
   private
 
   def todo_params
-    params.require(:todo).permit(:description)
+    params.require(:todo).permit(:description, :completed_at)
   end
 
   def todos_view

@@ -5,15 +5,15 @@ class TodosView
   end
 
   def todo_lists
-    user.todo_lists
+    @todo_lists ||= user.todo_lists
   end
 
   def todo_list
-    todo_lists.find(list_id)
+    @todo_list ||= todo_lists.find(list_id)
   end
 
   def todos
-    todo_list.todos.order(created_at: :desc)
+    @todos ||= todo_list.todos.order(created_at: :desc)
   end
 
   def list_id
