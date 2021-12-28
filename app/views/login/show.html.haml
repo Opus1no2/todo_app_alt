@@ -1,5 +1,5 @@
-%h1 Login
-= form_with url: "/session", method: :post do |form|
-  = form.email_field :email
-  = form.password_field :password
-  = form.submit "Login"
+.flex.flex-col.grow
+  = form_with url: "/session", method: :post, class: 'flex flex-col items-center justify-center grow' do |form|
+    = form.email_field :email, class: ['mb-2']
+    = form.password_field :password
+    = form.submit "Login"
