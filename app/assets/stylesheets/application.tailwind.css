@@ -16,4 +16,10 @@
   a {
     color: #5197ff;
   }
+  a:hover {
+    text-decoration: underline;
+  }
+  input[type='text'] {
+    border-color: #a9c6ff;
+  }
 }

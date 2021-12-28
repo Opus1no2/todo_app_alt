@@ -1,5 +1,4 @@
 .pb-5
-  = turbo_frame_tag dom_id(Todo.new) do
-    = form_for([@todos_view.todo_list, Todo.new]) do |f|
-      = f.text_field :description
-      = f.submit class: 'border border-gray-300 hover:border-indigo-300 cursor-pointer p-2 '
+  = turbo_frame_tag dom_id(Todo.new), data: {'controller' => 'todo'} do
+    = form_for([@todos_view.todo_list, Todo.new], data: {'todo-target' => 'form'}) do |f|
+      = f.text_field :description, { class: 'w-full', data: { 'todo-target' => 'input' } }
