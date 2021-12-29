@@ -13,13 +13,26 @@
 */
 
 @layer base {
+  html {
+    color: #4a4343;
+  }
   a {
     color: #5197ff;
   }
   a:hover {
     text-decoration: underline;
   }
+  input {
+    width: 100%;
+  }
   input[type='text'] {
     border-color: #a9c6ff;
+  }
+  input[type='submit'] {
+    padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+    border: solid 1px;
+  }
+  input[type='submit']:hover {
+    cursor: pointer;
   }
 }
