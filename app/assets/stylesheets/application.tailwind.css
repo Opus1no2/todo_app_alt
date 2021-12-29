@@ -25,12 +25,12 @@
   input {
     width: 100%;
   }
-  input[type='text'] {
-    border-color: #a9c6ff;
+  input[type='email'], input[type='password'], input[type='text'], input[type='checkbox'] {
+    border-color: #b3b3b3;
   }
   input[type='submit'] {
     padding: 0.5rem 0.75rem 0.5rem 0.75rem;
-    border: solid 1px;
+    border: solid 1px #b3b3b3;
   }
   input[type='submit']:hover {
     cursor: pointer;
