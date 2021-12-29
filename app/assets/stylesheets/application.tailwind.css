@@ -16,6 +16,9 @@
   html {
     color: #4a4343;
   }
+  i:before {
+    color: #626262;
+  }
   a {
     color: #5197ff;
   }

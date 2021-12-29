@@ -9,10 +9,11 @@ RSpec.describe 'TodoLists', type: :request do
     log_in(user)
   end
 
-  describe 'GET /index' do
-    it 'renders index' do
-      get '/todo_lists'
-      expect(response).to render_template(:index)
+  describe 'DELETE /destroy' do
+    it 'destroys the list' do
+      expect {
+        delete todo_list_path(user.todo_lists.first), headers: turbo_stream_headers
+      }.to change { TodoList.count }
     end
   end
 end
