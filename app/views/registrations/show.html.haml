@@ -1,10 +1,10 @@
-.flex.flex-col.grow.items-center.justify-center
+.flex.flex-col.grow.items-center.pt-16
   - flash.each do |type, msg|
     .flex.text-orange-400
       = msg
-  %h1.pb-2
+  %h1.pb-2.text-xl
     Welcome! All you need is username and password.
   = form_with url: "/registration", method: :post, class: 'flex flex-col w-2/5' do |form|
     = form.email_field :email, class: ['mb-2']
     = form.password_field :password, class: ['mb-2']
-    = form.submit "Login", class: ['border-solid', 'border-2']
+    = form.submit "Register", class: ['border-solid', 'border-2']

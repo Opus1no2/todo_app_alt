@@ -1,4 +1,6 @@
-.flex.flex-col.grow.items-center.justify-center
+.flex.flex-col.grow.items-center.pt-16
+  %h1.pb-2.text-xl
+    Welcome Back!
   = form_with url: "/session", method: :post, class: 'flex flex-col w-2/5' do |form|
     = form.email_field :email, class: ['mb-2']
     = form.password_field :password, class: ['mb-2']
