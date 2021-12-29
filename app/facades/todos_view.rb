@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TodosView
   def initialize(user, params)
     @user = user

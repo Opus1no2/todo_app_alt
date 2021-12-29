@@ -18,8 +18,8 @@ class TodosController < ApplicationController
     respond_to do |format|
       format.turbo_stream do
         if @todo.save
-          render turbo_stream: turbo_stream.prepend(:todos, partial: "todo",
-            locals: { todo: @todo })
+          render turbo_stream: turbo_stream.prepend(:todos, partial: 'todo',
+                                                            locals: { todo: @todo })
         end
       end
     end

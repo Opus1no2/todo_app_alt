@@ -2,6 +2,6 @@
 
 module TodosHelper
   def completed_at(params)
-    params[:completed_at].to_i > 0 ? DateTime.current : nil
+    params[:completed_at].to_i.positive? ? DateTime.current : nil
   end
 end
