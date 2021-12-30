@@ -1,4 +1,4 @@
 .pb-5
   = turbo_frame_tag dom_id(Todo.new), data: {'controller' => 'todo'} do
     = form_for([@todos_view.todo_list, Todo.new], data: {'todo-target' => 'form'}) do |f|
-      = f.text_field :description, { class: 'w-full', data: { 'todo-target' => 'input' }, placeholder: 'new todo...' }
+      = f.text_field :description, { class: 'w-full', data: { 'todo-target' => 'input' }, placeholder: 'new todo...', autocomplete: 'off' }

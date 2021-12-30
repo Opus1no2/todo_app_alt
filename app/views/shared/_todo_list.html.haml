@@ -1,5 +1,5 @@
 = turbo_frame_tag dom_id(todo_list) do
-  .flex.items-center.justify-between
-    = link_to todo_list.label, todo_list_todos_path(todo_list), data: { 'turbo' => 'false' }
+  .flex.items-center.justify-between.mb-4
+    = link_to todo_list.label, todo_list_todos_path(todo_list), target: '_top'
     = button_to todo_list_path(todo_list), method: :delete do
       %i.far.fa-trash-alt
