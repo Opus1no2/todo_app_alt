@@ -1,6 +1,3 @@
-%div{data: { controller: 'todo'}}
+.mb-8{data: { controller: 'todo'}}
   = form_with model: TodoList.new, data: {'todo-target' => 'form'} do |f|
-    .flex
-      = f.text_field :label, data: { 'todo-target' => 'input' }, placeholder: 'New List...', autocomplete: 'off'
-      = f.button class: ['ml-2 px-4 border'] do
-        %i.fas.fa-plus
+    = f.text_field :label, data: { 'todo-target' => 'input' }, placeholder: 'New List...', autocomplete: 'off'
