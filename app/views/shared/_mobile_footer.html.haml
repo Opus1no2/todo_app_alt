@@ -1,5 +1,11 @@
 .flex.border.sticky
   %button.grow.border-r.pt-2.pb-2
-    = link_to "Lists", todo_lists_path
+    - if logged_in?
+      = link_to "Lists", todo_lists_path
+    - else
+      = link_to "Register", registration_path
   .flex.grow.pt-2.pb-2.justify-center
-    = button_to "Logout", session_path, method: :delete
+    - if logged_in?
+      = button_to "Logout", session_path, method: :delete
+    - else
+      = link_to "Login", login_path

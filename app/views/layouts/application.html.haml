@@ -10,8 +10,6 @@
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
   %body.h-screen.flex.flex-col
-    %header
-      = render "shared/header"
     %main.flex.flex-col.grow
       = yield
     .md:hidden
