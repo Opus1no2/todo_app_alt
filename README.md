@@ -1,3 +1,5 @@
 # README
 
-Playing with rails7
+Playing with rails7:
+
+https://dashymcdashboard.com/
