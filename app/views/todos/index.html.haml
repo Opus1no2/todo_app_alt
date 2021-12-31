@@ -1,11 +1,11 @@
 .flex.h-full
-  .flex-col.w-56.mt-5.mb-5.border-r{ class: "border-[#a9c6ff]" }
+  .flex-col.w-56.mt-5.mb-5.border-r.hidden.md:flex{ class: "border-[#a9c6ff]" }
     .mb-5.px-5
       = render partial: "todo_lists/new_form"
       = turbo_frame_tag "todo_lists" do
         = render partial: "shared/todo_list", collection: @todos_view.todo_lists
 
-  .flex-col.grow.px-5.mt-5
+  .flex-col.grow.px-2.mt-5.md:px-5
     = render partial: "todo_input"
     = turbo_frame_tag "todos" do
       = render partial: "todo", collection: @todos_view.todos
