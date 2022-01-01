@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get '/login', to: 'login#show'
   resource :session, only: %i[create destroy]
+  resource :settings, only: %i[show update], controller: 'user_settings'
   resources :todo_lists do
     resources :todos
   end

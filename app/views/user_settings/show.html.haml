@@ -1,0 +1,19 @@
+.hidden.md:block
+  = render "shared/header"
+.container.mx-auto.h-full.border.mb-8{class: 'w-2/4'}
+  - if flash[:notice]
+    .flex.flex-col.grow.items-center.bg-green-300.py-4
+      = flash[:notice]
+  - if flash[:alert]
+    .flex.flex-col.grow.items-center.bg-red-300.py-4
+      - flash[:alert].each do |alert|
+        = alert
+  .px-16
+    .flex.flex-col.grow.pt-10.pb-10
+      %h1.text-xl.mb-6 Settings
+      = form_with model: @current_user, method: :PUT, class: 'flex flex-col grow w-full' do |form|
+        = form.label :email, "Email:"
+        = form.email_field :email, class: ['mb-2']
+        = form.label :email, "Password:"
+        = form.password_field :password, class: ['mb-2']
+        = form.submit "Update Settings", class: ['border-solid', 'border-2']

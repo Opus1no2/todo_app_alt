@@ -17,7 +17,7 @@ class TodoListsController < ApplicationController
       format.turbo_stream do
         if @todo_list.save
           render turbo_stream: turbo_stream.append(:todo_lists, partial: 'shared/todo_list',
-                                                            locals: { todo_list: @todo_list })
+                                                                locals: { todo_list: @todo_list })
         end
       end
     end

@@ -11,9 +11,9 @@ RSpec.describe 'TodoLists', type: :request do
 
   describe 'DELETE /destroy' do
     it 'destroys the list' do
-      expect {
+      expect do
         delete todo_list_path(user.todo_lists.first), headers: turbo_stream_headers
-      }.to change { TodoList.count }
+      end.to change(TodoList, :count)
     end
   end
 end
