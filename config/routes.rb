@@ -3,6 +3,7 @@
 Rails.application.routes.draw do
   root 'login#show'
 
+  get '/status', to: 'status#show'
   get '/login', to: 'login#show'
   resource :session, only: %i[create destroy]
   resource :settings, only: %i[show update], controller: 'user_settings'
